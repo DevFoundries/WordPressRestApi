@@ -25,13 +25,4 @@ namespace WordPressPCL.Models
         [JsonProperty("taxonomy")]
         public string Taxonomy { get; set; }
     }
-
-
-    public class Content
-    {
-        [JsonProperty("rendered")]
-        public string Rendered { get; set; }
-        [JsonProperty("raw")]
-        public string Raw { get; set; }
-    }
 }

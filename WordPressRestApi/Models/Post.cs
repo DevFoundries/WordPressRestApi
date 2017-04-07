@@ -1,6 +1,5 @@
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 
 namespace WordPressPCL.Models
 {
@@ -103,66 +102,5 @@ namespace WordPressPCL.Models
 
         [JsonProperty("_embedded")]
         public Embedded Embedded { get; set; }
-    }
-
-    public class Embedded
-    {
-        [JsonProperty("author")]
-        public IList<User> Author { get; set; }
-
-        [JsonProperty("replies")]
-        public IList<IList<Comment>> Replies { get; set; }
-
-        [JsonProperty("wp:featuredmedia")]
-        public IList<Media> WpFeaturedmedia { get; set; }
-
-        [JsonProperty("wp:term")]
-        public IList<IList<Term>> WpTerm { get; set; }
-    }
-
-
-    public enum OrderBy
-    {
-        date, id, include, title, slug
-    }
-
-    public class Guid
-    {
-        [JsonProperty("rendered")]
-        public string Rendered { get; set; }
-        [JsonProperty("raw")]
-        public string Raw { get; set; }
-    }
-
-    public class Title
-    {
-        [JsonProperty("rendered")]
-        public string Rendered { get; set; }
-        [JsonProperty("raw")]
-        public string Raw { get; set; }
-
-    }
-
-    public class Excerpt
-    {
-        [JsonProperty("rendered")]
-        public string Rendered { get; set; }
-        [JsonProperty("raw")]
-        public string Raw { get; set; }
-    }
-
-    public class VersionHistory
-    {
-        [JsonProperty("href")]
-        public string Href { get; set; }
-    }
-
-    public class HttpsApiWOrgFeaturedmedia
-    {
-        [JsonProperty("embeddable")]
-        public bool Embeddable { get; set; }
-
-        [JsonProperty("href")]
-        public string Href { get; set; }
     }
 }

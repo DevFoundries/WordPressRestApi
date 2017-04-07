@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using RestSharp.Portable;
 using RestSharp.Portable.HttpClient;
 using WordPressPCL.Models;
+using WordPressRestApi.QueryModel;
 
 namespace WordPressRestApi
 {
@@ -22,13 +23,20 @@ namespace WordPressRestApi
             this.Url = url;
         }
 
-        public async Task<List<Post>> GetPosts(int perPage = 10)
+        public async Task<List<Post>> GetPosts(PostQuery query)
         {
-            var response = await Client.Execute(new RestRequest()
+            var request = new RestRequest()
             {
                 Method = Method.GET,
                 Resource = "posts",
-            }.AddQueryParameter("per_page",perPage));
+            };
+            var queryParameters = query.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+
+            var response = await Client.Execute(request);
 
             return JsonConvert.DeserializeObject<List<Post>>(response.Content);
         }

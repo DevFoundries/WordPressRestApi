@@ -40,14 +40,45 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\About.cs" />
+    <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\AuthorAvatarUrls.cs" />
+    <Compile Include="Models\AvatarUrls.cs" />
+    <Compile Include="Models\Caption.cs" />
+    <Compile Include="Models\Collection.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Content.cs" />
+    <Compile Include="Models\Cury.cs" />
+    <Compile Include="Models\Embedded.cs" />
+    <Compile Include="Models\Excerpt.cs" />
+    <Compile Include="Models\Full.cs" />
+    <Compile Include="Models\Guid.cs" />
+    <Compile Include="Models\HttpsApiWOrgAttachment.cs" />
+    <Compile Include="Models\HttpsApiWOrgFeaturedmedia.cs" />
+    <Compile Include="Models\HttpsApiWOrgMeta.cs" />
+    <Compile Include="Models\HttpsApiWOrgTerm.cs" />
+    <Compile Include="Models\ImageMeta.cs" />
+    <Compile Include="Models\Large.cs" />
     <Compile Include="Models\Links.cs" />
     <Compile Include="Models\Media.cs" />
+    <Compile Include="Models\MediaDetails.cs" />
+    <Compile Include="Models\Medium.cs" />
+    <Compile Include="Models\MediumLarge.cs" />
+    <Compile Include="Models\OrderBy.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostThumbnail.cs" />
+    <Compile Include="Models\Reply.cs" />
+    <Compile Include="Models\Self.cs" />
+    <Compile Include="Models\Sizes.cs" />
     <Compile Include="Models\Term.cs" />
+    <Compile Include="Models\Thumbnail.cs" />
+    <Compile Include="Models\Title.cs" />
+    <Compile Include="Models\VersionHistory.cs" />
+    <Compile Include="Models\WpPostType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Tags.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="QueryModel\PostQuery.cs" />
     <Compile Include="WordPressApiClient.cs" />
   </ItemGroup>
   <ItemGroup>

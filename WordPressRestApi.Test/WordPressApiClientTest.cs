@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WordPressRestApi.QueryModel;
 
 namespace WordPressRestApi.Test
 {
@@ -19,7 +20,7 @@ namespace WordPressRestApi.Test
         {
             WordPressApiClient client = new WordPressApiClient("https://wbsimms.com/wp-json/wp/v2");
             Assert.IsNotNull(client);
-            var result = await client.GetPosts(perPage: 20);
+            var result = await client.GetPosts(new PostQuery(){PerPage = "20"});
             Assert.IsNotNull(result);
         }
     }
