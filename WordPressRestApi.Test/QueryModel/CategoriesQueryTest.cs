@@ -5,29 +5,24 @@ using WordPressRestApi.QueryModel;
 namespace WordPressRestApi.Test.QueryModel
 {
     [TestClass]
-    public class PostQueryTest
+    public class CategoriesQueryTest
     {
         [TestMethod]
         public void CtorTest()
         {
-            PostsQuery cut = new PostsQuery();
+            CategoriesQuery cut = new CategoriesQuery();
             Assert.IsNotNull(cut);
         }
 
         [TestMethod]
         public void DictionaryTest()
         {
-            PostsQuery cut = new PostsQuery();
-            cut.Author = "wbsimms";
-            cut.PerPage = "30";
+            CategoriesQuery cut = new CategoriesQuery {PerPage = "30", HideEmpty = "true"};
             Assert.IsNotNull(cut);
 
             var dict = cut.GenerateQueryDictionary();
             Assert.IsNotNull(dict);
             Assert.AreEqual(2,dict.Count);
         }
-
     }
-
-
 }

@@ -15,7 +15,7 @@ namespace WordPressRestApi
     {
 
         public string Url { get; private set; }
-        
+        public RestClient Client => new RestClient(new Uri(this.Url));
 
 
         public WordPressApiClient(string url)
@@ -23,7 +23,23 @@ namespace WordPressRestApi
             this.Url = url;
         }
 
-        public async Task<List<Post>> GetPosts(PostQuery query)
+        public async Task<Post> GetPost(PostQuery query, int postId)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.GET,
+                Resource = "posts/"+postId,
+            };
+            var queryParameters = query.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Post>(response.Content);
+        }
+
+        public async Task<List<Post>> GetPosts(PostsQuery query)
         {
             var request = new RestRequest()
             {
@@ -35,13 +51,41 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-
             var response = await Client.Execute(request);
-
             return JsonConvert.DeserializeObject<List<Post>>(response.Content);
         }
 
-        public RestClient Client => new RestClient(new Uri(this.Url));
-    }
+        public async Task<List<Category>> GetCategories(CategoriesQuery query)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.GET,
+                Resource = "categories",
+            };
+            var queryParameters = query.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Category>>(response.Content);
+        }
 
+        public async Task<List<Tag>> GetTags(TagsQuery query)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.GET,
+                Resource = "tags",
+            };
+            var queryParameters = query.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Tag>>(response.Content);
+        }
+
+    }
 }

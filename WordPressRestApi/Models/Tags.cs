@@ -2,6 +2,20 @@
 
 namespace WordPressPCL.Models
 {
+    public class Category : Tag
+    {
+        [JsonProperty("parent")]
+        public string Parent { get; set; }
+        [JsonProperty("meta")]
+        public dynamic Meta { get; set; }
+    }
+
+    public class Meta
+    {
+        public static string View = "view";
+        public static string Edit = "edit";
+    }
+
     public class Tag
     {
         [JsonProperty("id")]
