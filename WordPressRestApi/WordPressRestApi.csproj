@@ -16,14 +16,6 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PackageId>WordPressRestApi.WmBarrettSimms</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
-    <Authors>Wm. Barrett Simms</Authors>
-    <Description>WordPress Rest API for version 2.0</Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
-    <Copyright>Copyright 2017 (c) DevFoundries. All rights reserved.</Copyright>
-    <PackageTags>WordPress API PCL</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
