@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WordPressRestApi.QueryModel;
 
@@ -18,13 +19,14 @@ namespace WordPressRestApi.Test.QueryModel
         public void DictionaryTest()
         {
             PostsQuery cut = new PostsQuery();
-            cut.Author = "wbsimms";
-            cut.PerPage = "30";
+            cut.Author = 1;
+            cut.PerPage = 30;
+            cut.Categories = new List<int>(){131, 158};
             Assert.IsNotNull(cut);
 
             var dict = cut.GenerateQueryDictionary();
             Assert.IsNotNull(dict);
-            Assert.AreEqual(2,dict.Count);
+            Assert.AreEqual(3,dict.Count);
         }
 
     }

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>WmBarrettSimms.WordPressRestApi</id>
+    <version>$version$</version>
+    <title>WordPressRestApi PCL</title>
+    <authors>Wm. Barrett Simms</authors>
+    <owners>Wm. Barrett Simms</owners>
+    <licenseUrl>https://github.com/wbsimms/WordPressRestApi/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/wbsimms/WordPressRestApi</projectUrl>
+    <iconUrl>https://wbsimms.com/wp-content/uploads/2014/10/WBS_200px-icon1.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WordPress Rest API v2 PCL library</description>
+    <releaseNotes>Intial Revision</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>WordPress API REST V2 PCL</tags>
+  </metadata>
+</package>

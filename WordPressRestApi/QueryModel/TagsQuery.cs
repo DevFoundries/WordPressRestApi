@@ -5,9 +5,9 @@ namespace WordPressRestApi.QueryModel
         [QueryName(Name = "context")]
         public string Context { get; set; }
         [QueryName(Name = "page")]
-        public string Page { get; set; }
+        public int Page { get; set; }
         [QueryName(Name = "per_page")]
-        public string PerPage { get; set; }
+        public int PerPage { get; set; }
         [QueryName(Name = "search")]
         public string Search { get; set; }
         [QueryName(Name = "exclude")]
@@ -21,7 +21,7 @@ namespace WordPressRestApi.QueryModel
         [QueryName(Name = "orderby")]
         public string OrderBy { get; set; }
         [QueryName(Name = "hide_empty")]
-        public string HideEmpty { get; set; }
+        public bool HideEmpty { get; set; }
         [QueryName(Name = "post")]
         public string Post { get; set; }
         [QueryName(Name = "slug")]

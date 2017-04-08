@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -15,29 +16,33 @@ namespace WordPressRestApi.QueryModel
             {
                 if (p.GetValue(this) == null) continue;
                 var attr = p.CustomAttributes.First(x => x.AttributeType == typeof(QueryNameAttribute));
-                var value = p.GetValue(this).ToString();
+                string value = "";
+                if (p.PropertyType == typeof(Int32))
+                {
+                    if ((Int32) p.GetValue(this) == 0) continue;
+                    value = p.GetValue(this).ToString();
+                }
+                else if (p.PropertyType == typeof(List<int>))
+                {
+                    var list = (List<int>)p.GetValue(this);
+                    if (list.Count == 0) continue;
+                    value = string.Join(",", list);
+                }
+                else if (p.PropertyType == typeof(List<string>))
+                {
+                    var list = (List<string>) p.GetValue(this);
+                    if (list.Count == 0) continue;
+                    value = string.Join(",", list);
+                }
+                else
+                {
+                    value = p.GetValue(this).ToString();
+                }
+
                 var name = attr.NamedArguments.First(x => x.MemberName == "Name").TypedValue.Value;
                 retval.Add(name.ToString(),value);
             }
             return retval;
-        }
-
-        public string GenerateQueryString()
-        {
-            string query = "";
-            var props = this.GetType().GetRuntimeProperties();
-            foreach (var p in props)
-            {
-                if (p.GetValue(this) == null) continue;
-                var attr = p.CustomAttributes.First(x => x.AttributeType == typeof(QueryNameAttribute));
-                var value = p.GetValue(this).ToString();
-                var name = attr.NamedArguments.First(x => x.MemberName == "Name").TypedValue.Value;
-                query += name + "=" + value + "&";
-            }
-
-            if (!string.IsNullOrEmpty(query))
-                query = "?" + query;
-            return query;
         }
     }
 }

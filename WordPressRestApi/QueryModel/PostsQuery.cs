@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -7,15 +8,15 @@ namespace WordPressRestApi.QueryModel
     public class PostsQuery : AttributeGenerator
     {
         [QueryName(Name = "page")]
-        public string Page { get; set; }
+        public int Page { get; set; }
         [QueryName(Name = "per_page")]
-        public string PerPage { get; set; }
+        public int PerPage { get; set; }
         [QueryName(Name = "search")]
         public string Search { get; set; }
         [QueryName(Name = "after")]
         public string After { get; set; }
         [QueryName(Name = "author")]
-        public string Author { get; set; }
+        public int Author { get; set; }
         [QueryName(Name = "author_exclude")]
         public string AuthorExclude { get; set; }
         [QueryName(Name = "before")]
@@ -35,11 +36,11 @@ namespace WordPressRestApi.QueryModel
         [QueryName(Name = "status")]
         public string Status { get; set; }
         [QueryName(Name = "categories")]
-        public string Categories { get; set; }
+        public List<int> Categories { get; set; }
         [QueryName(Name = "categories_exclude")]
         public string CategoriesExclude { get; set; }
         [QueryName(Name = "tags")]
-        public string Tags { get; set; }
+        public List<int> Tags { get; set; }
         [QueryName(Name = "tags_exclude")]
         public string TagsExclude { get; set; }
         [QueryName(Name = "sticky")]

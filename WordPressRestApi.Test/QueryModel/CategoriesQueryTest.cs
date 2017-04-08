@@ -17,7 +17,7 @@ namespace WordPressRestApi.Test.QueryModel
         [TestMethod]
         public void DictionaryTest()
         {
-            CategoriesQuery cut = new CategoriesQuery {PerPage = "30", HideEmpty = "true"};
+            CategoriesQuery cut = new CategoriesQuery {PerPage = 30, HideEmpty = true};
             Assert.IsNotNull(cut);
 
             var dict = cut.GenerateQueryDictionary();

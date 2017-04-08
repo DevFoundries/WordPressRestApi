@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -26,7 +27,7 @@ namespace WordPressRestApi.Test
         [TestMethod]
         public async Task GetPostTest()
         {
-            var result = await client.GetPosts(new PostsQuery() { PerPage = "1" });
+            var result = await client.GetPosts(new PostsQuery() { PerPage = 1 });
             Assert.IsNotNull(result);
 
             var onePost = await client.GetPost(new PostQuery(), result.First().Id);
@@ -36,21 +37,29 @@ namespace WordPressRestApi.Test
         [TestMethod]
         public async Task GetPostsTest()
         {
-            var result = await client.GetPosts(new PostsQuery(){PerPage = "20"});
+            var result = await client.GetPosts(new PostsQuery(){PerPage = 20});
             Assert.IsNotNull(result);
         }
 
         [TestMethod]
+        public async Task GetPostsWithAuthorAndCateogoryTest()
+        {
+            var result = await client.GetPosts(new PostsQuery() { Author = 1, Categories = new List<int>(){512}});
+            Assert.IsNotNull(result);
+        }
+
+
+        [TestMethod]
         public async Task GetCategoriesTest()
         {
-            var result = await client.GetCategories(new CategoriesQuery() { PerPage = "20", HideEmpty = "true"});
+            var result = await client.GetCategories(new CategoriesQuery() { PerPage = 20, HideEmpty = true});
             Assert.IsNotNull(result);
         }
 
         [TestMethod]
         public async Task GetTagsTest()
         {
-            var result = await client.GetTags(new TagsQuery() { PerPage = "20", HideEmpty = "true" });
+            var result = await client.GetTags(new TagsQuery() { PerPage = 20, HideEmpty = true });
             Assert.IsNotNull(result);
         }
 
