@@ -7,4 +7,8 @@ namespace WordPressRestApi.QueryModel
         [QueryName(Name = "password")]
         public string Passsord { get; set; }
     }
+
+    public class PageQuery : PostQuery
+    {
+    }
 }

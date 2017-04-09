@@ -65,6 +65,7 @@
     <Compile Include="Models\Medium.cs" />
     <Compile Include="Models\MediumLarge.cs" />
     <Compile Include="Models\OrderBy.cs" />
+    <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostThumbnail.cs" />
     <Compile Include="Models\Reply.cs" />
@@ -79,12 +80,14 @@
     <Compile Include="Models\Tags.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="QueryModel\AttributeGenerator.cs" />
+    <Compile Include="QueryModel\PagesQuery.cs" />
     <Compile Include="QueryModel\TagsQuery.cs" />
     <Compile Include="QueryModel\Context.cs" />
     <Compile Include="QueryModel\CategoriesQuery.cs" />
     <Compile Include="QueryModel\PostQuery.cs" />
     <Compile Include="QueryModel\PostsQuery.cs" />
-    <Compile Include="QueryModel\QueryNameAttribute.cs" />    <Compile Include="WordPressApiClient.cs" />
+    <Compile Include="QueryModel\QueryNameAttribute.cs" />
+    <Compile Include="WordPressApiClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FubarCoder.RestSharp.Portable.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=be81bb0f53eab22f, processorArchitecture=MSIL">

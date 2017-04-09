@@ -44,7 +44,7 @@ namespace WordPressRestApi.Test
         [TestMethod]
         public async Task GetPostsWithAuthorAndCateogoryTest()
         {
-            var result = await client.GetPosts(new PostsQuery() { Author = 1, Categories = new List<int>(){512}});
+            var result = await client.GetPosts(new PostsQuery() { Author = new List<int>() { 1 }, Categories = new List<int>(){512}});
             Assert.IsNotNull(result);
         }
 
@@ -60,6 +60,20 @@ namespace WordPressRestApi.Test
         public async Task GetTagsTest()
         {
             var result = await client.GetTags(new TagsQuery() { PerPage = 20, HideEmpty = true });
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public async Task GetPagesTest()
+        {
+            var result = await client.GetPages(new PagesQuery() { PerPage = 20, Author = new List<int>() { 1 } });
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public async Task GetPageTest()
+        {
+            var result = await client.GetPage(new PageQuery(),2551);
             Assert.IsNotNull(result);
         }
 

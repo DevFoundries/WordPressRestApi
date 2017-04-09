@@ -19,7 +19,7 @@ namespace WordPressRestApi.Test.QueryModel
         public void DictionaryTest()
         {
             PostsQuery cut = new PostsQuery();
-            cut.Author = 1;
+            cut.Author = new List<int>() {1};
             cut.PerPage = 30;
             cut.Categories = new List<int>(){131, 158};
             Assert.IsNotNull(cut);
