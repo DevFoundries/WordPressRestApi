@@ -25,7 +25,7 @@ I'm prioritizing retreiving data for now. Add, then modify, will come later.
 | Posts | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Categories | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Tags | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
-| Pages | <font style='color:red'>Not Started</font> | <font style='color:orange'>In Progress</font> | | |
+| Pages | <font style='color:red'>Not Started</font> | <font style='color:green'>Done</font> | | |
 | Comments | <font style='color:red'>Not Started</font> | | | |
 | Taxonomies | <font style='color:red'>Not Started</font> | | | |
 | Media | <font style='color:red'>Not Started</font> |  | | |
