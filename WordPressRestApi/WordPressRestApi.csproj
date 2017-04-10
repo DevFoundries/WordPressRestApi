@@ -81,6 +81,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="QueryModel\AttributeGenerator.cs" />
     <Compile Include="QueryModel\PagesQuery.cs" />
+    <Compile Include="QueryModel\UserQuery.cs" />
     <Compile Include="QueryModel\TagsQuery.cs" />
     <Compile Include="QueryModel\Context.cs" />
     <Compile Include="QueryModel\CategoriesQuery.cs" />

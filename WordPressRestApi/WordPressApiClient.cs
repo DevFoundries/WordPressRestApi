@@ -119,5 +119,37 @@ namespace WordPressRestApi
             var response = await Client.Execute(request);
             return JsonConvert.DeserializeObject<Page>(response.Content);
         }
+
+        public async Task<List<User>> GetUsers(UsersQuery query)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.GET,
+                Resource = "users",
+            };
+            var queryParameters = query.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<List<User>>(response.Content);
+        }
+
+        public async Task<User> GetUser(UserQuery query, int userId)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.GET,
+                Resource = "users/"+userId,
+            };
+            var queryParameters = query.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<User>(response.Content);
+        }
     }
 }

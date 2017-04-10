@@ -77,6 +77,21 @@ namespace WordPressRestApi.Test
             Assert.IsNotNull(result);
         }
 
+        [TestMethod]
+        public async Task GetUsersTest()
+        {
+            var result = await client.GetUsers(new UsersQuery() {PerPage = 30});
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public async Task GetUserTest()
+        {
+            var result = await client.GetUser(new UserQuery() { Context = Context.View }, 1);
+            Assert.IsNotNull(result);
+        }
+
+
 
     }
 }
