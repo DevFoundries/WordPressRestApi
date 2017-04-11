@@ -21,16 +21,16 @@ WordPressRestApi : A PCL library to access Wordpress content through the v2 API
 I'm prioritizing retreiving data for now. Add, then modify, will come later.
 
 | Feature | Status | Read | Update | Add |
-| ------- | ------ | ----- | ---- | ---- | --- | 
+| ------- | ------ | ----- | ---- | ---- | 
 | Posts | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Categories | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Tags | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Pages | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Comments | <font style='color:red'>Not Started</font> | | | |
 | Taxonomies | <font style='color:red'>Not Started</font> | | | |
-| Media | <font style='color:red'>Not Started</font> |  | | |
+| Media | <font style='color:red'>Not Started</font> | | | |
 | Users | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
-| Post Types | <font style='color:red'>Not Started</font> |  | | |
+| Post Types | <font style='color:red'>Not Started</font> | | | |
 | Post Statuses | <font style='color:red'>Not Started</font> | | | |
 | Settings | <font style='color:red'>Not Started</font> | | | |
 | Posts | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
