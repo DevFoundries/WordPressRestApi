@@ -40,7 +40,7 @@ I'm prioritizing retreiving data for now. Add, then modify, will come later.
 | Pages | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Comments | <font style='color:red'>Not Started</font> | | | |
 | Taxonomies | <font style='color:red'>Not Started</font> | | | |
-| Media | <font style='color:red'>Not Started</font> | | | |
+| Media | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Users | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Post Types | <font style='color:red'>Not Started</font> | | | |
 | Post Statuses | <font style='color:red'>Not Started</font> | | | |
