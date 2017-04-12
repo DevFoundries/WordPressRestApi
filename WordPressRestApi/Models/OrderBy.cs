@@ -1,4 +1,4 @@
-namespace WordPressPCL.Models
+namespace WordPressRestApi.Models
 {
     public enum OrderBy
     {

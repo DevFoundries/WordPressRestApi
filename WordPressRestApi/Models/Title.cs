@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace WordPressPCL.Models
+namespace WordPressRestApi.Models
 {
     public class Title
     {

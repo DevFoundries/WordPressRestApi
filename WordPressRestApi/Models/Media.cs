@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace WordPressPCL.Models
+namespace WordPressRestApi.Models
 {
     public class Media
     {
@@ -52,7 +52,7 @@ namespace WordPressPCL.Models
         public Caption Caption { get; set; }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public Description Description { get; set; }
 
         [JsonProperty("media_type")]
         public string MediaType { get; set; }
@@ -64,12 +64,19 @@ namespace WordPressPCL.Models
         public MediaDetails MediaDetails { get; set; }
 
         [JsonProperty("post")]
-        public int Post { get; set; }
+        public string Post { get; set; }
 
         [JsonProperty("source_url")]
         public string SourceUrl { get; set; }
 
         [JsonProperty("_links")]
         public Links Links { get; set; }
+    }
+
+    public class Description
+    {
+        [JsonProperty("rendered")]
+        public string Rendered { get; set; }
+        
     }
 }

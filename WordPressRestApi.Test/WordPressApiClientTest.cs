@@ -91,6 +91,19 @@ namespace WordPressRestApi.Test
             Assert.IsNotNull(result);
         }
 
+        [TestMethod]
+        public async Task GetMediasTest()
+        {
+            var result = await client.GetMedias(new MediasQuery() { PerPage = 30});
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public async Task GetMediaTest()
+        {
+            var result = await client.GetMedia(new MediaQuery() { Context = Context.View }, 8845);
+            Assert.IsNotNull(result);
+        }
 
 
     }

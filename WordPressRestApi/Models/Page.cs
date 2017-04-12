@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using WordPressPCL.Models;
-using Guid = WordPressPCL.Models.Guid;
+using WordPressRestApi.Models;
+using Guid = WordPressRestApi.Models.Guid;
 
 namespace WordPressRestApi.Models
 {

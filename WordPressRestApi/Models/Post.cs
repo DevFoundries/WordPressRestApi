@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace WordPressPCL.Models
+namespace WordPressRestApi.Models
 {
     public class Post
     {

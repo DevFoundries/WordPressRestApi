@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WordPressPCL.Models
+namespace WordPressRestApi.Models
 {
     public class Links
     {

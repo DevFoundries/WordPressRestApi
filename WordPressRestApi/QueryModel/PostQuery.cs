@@ -11,4 +11,8 @@ namespace WordPressRestApi.QueryModel
     public class PageQuery : PostQuery
     {
     }
+
+    public class MediaQuery : PostQuery
+    {
+    }
 }

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp.Portable;
 using RestSharp.Portable.HttpClient;
-using WordPressPCL.Models;
 using WordPressRestApi.Models;
 using WordPressRestApi.QueryModel;
 
@@ -151,5 +150,40 @@ namespace WordPressRestApi
             var response = await Client.Execute(request);
             return JsonConvert.DeserializeObject<User>(response.Content);
         }
+
+        public async Task<List<Media>> GetMedias(MediasQuery query)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.GET,
+                Resource = "media",
+            };
+            var queryParameters = query.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            var content = response.Content;
+            return JsonConvert.DeserializeObject<List<Media>>(content);
+        }
+
+        public async Task<Media> GetMedia(MediaQuery query, int mediaId)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.GET,
+                Resource = "media/" + mediaId,
+            };
+            var queryParameters = query.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+
+            return JsonConvert.DeserializeObject<Media>(response.Content);
+        }
+
     }
 }
