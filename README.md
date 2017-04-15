@@ -13,8 +13,12 @@ This open source project is user supported. Please donate what you can if you fi
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 
+## Installation
+```
+Install-Package WmBarrettSimms.WordPressRestApi 
+```
 
-## Supports
+## Supported Platforms
 
 | .NET Version | Supported |
 | ------------ | --------- |
