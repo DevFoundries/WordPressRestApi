@@ -36,9 +36,9 @@ Install-Package WmBarrettSimms.WordPressRestApi
 
 I'm prioritizing retreiving data for now. Add, then modify, will come later.
 
-| Feature | Status | Read | Update | Add |
+| Feature | Status | Read | Add | Update |
 | ------- | ------ | ----- | ---- | ---- | 
-| Posts | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
+| Posts | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | |
 | Categories | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Tags | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Pages | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
@@ -48,7 +48,7 @@ I'm prioritizing retreiving data for now. Add, then modify, will come later.
 | Users | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Post Types | <font style='color:red'>Not planned</font> | | | |
 | Post Statuses | <font style='color:red'>Not planned</font> | | | |
-| Settings | <font style='color:red'>Not Started</font> | | | |
+| Settings | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | N/A | <font style='color:green'>Done</font> |
 | Posts | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 
 
@@ -61,7 +61,7 @@ using WordPressRestApi;
 WordPressApiClient client = new WordPressApiClient("https://wbsimms.com/wp-json/wp/v2");
 ```
 
-### Fetching posts
+### Fetching data
 
 #### Fetch the last 20 posts
 ```CSharp
@@ -88,4 +88,14 @@ List<Category> result = await client.GetCategories(new CategoriesQuery(){HideEmp
 List<Tag> result = await client.GetTags(new TagsQuery() { PerPage = 20, HideEmpty = true });
 ```
 
+### Creating data
+
+All create, update, delete operations require authentictaion. Currently, I'm supporting the [Application Passwords](https://wordpress.org/plugins/application-passwords/) plugin. You must install this pugin to authenticate. One installed, you need to generate an application password for the API user. All data modification calls require an instance of AuthenticationTokens populated with the WP username and application password. See below for examples.  
+
+#### Create a new Posts
+```CSharp
+var result = await client.CreatePost(
+    new AuthenticationTokens() { ApplicationPassword = "Secret", UserName = "wbsimms" },
+    new PostCreate(){Title = "This is a test post",Content = "some content", Excerpt = "unit testing test"});
+```
 ## License
