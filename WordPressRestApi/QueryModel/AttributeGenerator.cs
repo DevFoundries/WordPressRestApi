@@ -34,6 +34,12 @@ namespace WordPressRestApi.QueryModel
                     if (list.Count == 0) continue;
                     value = string.Join(",", list);
                 }
+                else if (p.PropertyType == typeof(DateTime))
+                {
+                    if ((DateTime)p.GetValue(this) == DateTime.MinValue) continue;
+                    value = ((DateTime)p.GetValue(this)).ToString("O");
+                }
+
                 else
                 {
                     value = p.GetValue(this).ToString();

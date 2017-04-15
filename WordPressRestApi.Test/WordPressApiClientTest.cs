@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WordPressRestApi.CreateModel;
+using WordPressRestApi.Models;
 using WordPressRestApi.QueryModel;
 
 namespace WordPressRestApi.Test
@@ -104,6 +106,32 @@ namespace WordPressRestApi.Test
             var result = await client.GetMedia(new MediaQuery() { Context = Context.View }, 8845);
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public async Task GetSettingsTest()
+        {
+            var result = await client.GetSettings(new AuthenticationTokens(){ApplicationPassword = "Secret", UserName = "wbsimms"});
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public async Task UpdateSettingsTest()
+        {
+            var result = await client.UpdateSettings(
+                new AuthenticationTokens() { ApplicationPassword = "Secret", UserName = "wbsimms" },
+                new Settings(){Language = "en"});
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public async Task PostCreateTest()
+        {
+            var result = await client.CreatePost(
+                new AuthenticationTokens() { ApplicationPassword = "Secret", UserName = "wbsimms" },
+                new PostCreate(){Title = "This is a test post",Content = "some content", Excerpt = "unit testing test"});
+            Assert.IsNotNull(result);
+        }
+
 
 
     }

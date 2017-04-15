@@ -40,6 +40,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateModel\PostCreate.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\AuthorAvatarUrls.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Models\PostThumbnail.cs" />
     <Compile Include="Models\Reply.cs" />
     <Compile Include="Models\Self.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Sizes.cs" />
     <Compile Include="Models\Term.cs" />
     <Compile Include="Models\Thumbnail.cs" />

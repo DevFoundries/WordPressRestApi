@@ -6,16 +6,33 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp.Portable;
 using RestSharp.Portable.HttpClient;
+using WordPressRestApi.CreateModel;
 using WordPressRestApi.Models;
 using WordPressRestApi.QueryModel;
 
 namespace WordPressRestApi
 {
+    public class AuthenticationTokens
+    {
+        public string UserName { get; set; }
+        public string ApplicationPassword { get; set; }
+        
+        public string CreateHeaderToken()
+        {
+            string retval = Convert.ToBase64String(Encoding.UTF8.GetBytes(UserName+":"+ApplicationPassword));
+            return retval;
+        }
+
+    }
+
+
+
     public class WordPressApiClient
     {
 
         public string Url { get; private set; }
         public RestClient Client => new RestClient(new Uri(this.Url));
+
 
 
         public WordPressApiClient(string url)
@@ -184,6 +201,75 @@ namespace WordPressRestApi
 
             return JsonConvert.DeserializeObject<Media>(response.Content);
         }
+        public async Task<Settings> GetSettings(AuthenticationTokens tokens)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.GET,
+                Resource = "settings",
+            }.AddHeader("Authorization","Basic "+tokens.CreateHeaderToken());
+            //var queryParameters = query.GenerateQueryDictionary();
+            //foreach (var pair in queryParameters)
+            //{
+            //    request.AddQueryParameter(pair.Key, pair.Value);
+            //}
+
+            var response = await Client.Execute(request);
+
+            return JsonConvert.DeserializeObject<Settings>(response.Content);
+        }
+
+        public async Task<Settings> UpdateSettings(AuthenticationTokens tokens, Settings settings)
+        {
+            var body = JsonConvert.SerializeObject(settings, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "settings",
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken()).AddBody(body);
+
+ 
+            var response = await Client.Execute(request);
+
+            return JsonConvert.DeserializeObject<Settings>(response.Content);
+        }
+
+        public async Task<Post> CreatePost(AuthenticationTokens tokens, PostCreate post)
+        {
+            var body = JsonConvert.SerializeObject(post, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "posts",
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = post.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+
+            var response = await Client.Execute(request);
+
+            return JsonConvert.DeserializeObject<Post>(response.Content);
+        }
+
+
+
 
     }
 }
