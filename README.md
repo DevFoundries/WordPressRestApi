@@ -49,7 +49,7 @@ I'm prioritizing retreiving data for now. Add, then modify, will come later.
 | Post Types | <font style='color:red'>Not planned</font> | | | |
 | Post Statuses | <font style='color:red'>Not planned</font> | | | |
 | Settings | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | N/A | <font style='color:green'>Done</font> |
-| Posts | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
+| Posts | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |
 
 
 ## Usage
