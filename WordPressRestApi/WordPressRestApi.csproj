@@ -91,6 +91,7 @@
     <Compile Include="QueryModel\PostQuery.cs" />
     <Compile Include="QueryModel\PostsQuery.cs" />
     <Compile Include="QueryModel\QueryNameAttribute.cs" />
+    <Compile Include="UpdateModel\PostUpdate.cs" />
     <Compile Include="WordPressApiClient.cs" />
   </ItemGroup>
   <ItemGroup>

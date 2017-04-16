@@ -9,6 +9,7 @@ using RestSharp.Portable.HttpClient;
 using WordPressRestApi.CreateModel;
 using WordPressRestApi.Models;
 using WordPressRestApi.QueryModel;
+using WordPressRestApi.UpdateModel;
 
 namespace WordPressRestApi
 {
@@ -268,6 +269,45 @@ namespace WordPressRestApi
             return JsonConvert.DeserializeObject<Post>(response.Content);
         }
 
+        public async Task<Post> UpdatePost(AuthenticationTokens tokens, PostUpdate post, int postId)
+        {
+            var body = JsonConvert.SerializeObject(post, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "posts/"+postId,
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = post.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+
+            var response = await Client.Execute(request);
+
+            return JsonConvert.DeserializeObject<Post>(response.Content);
+        }
+
+
+        public async Task<Post> DeletePost(AuthenticationTokens tokens, int postId)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.DELETE,
+                Resource = "posts/" + postId,
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var response = await Client.Execute(request);
+
+            return JsonConvert.DeserializeObject<Post>(response.Content);
+        }
 
 
 

@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WordPressRestApi.CreateModel;
 using WordPressRestApi.Models;
 using WordPressRestApi.QueryModel;
+using WordPressRestApi.UpdateModel;
 
 namespace WordPressRestApi.Test
 {
@@ -126,10 +127,23 @@ namespace WordPressRestApi.Test
         [TestMethod]
         public async Task PostCreateTest()
         {
+            var authToken = new AuthenticationTokens()
+            {
+                ApplicationPassword = "Secret",
+                UserName = "wbsimms"
+            };
             var result = await client.CreatePost(
-                new AuthenticationTokens() { ApplicationPassword = "Secret", UserName = "wbsimms" },
+                authToken,
                 new PostCreate(){Title = "This is a test post",Content = "some content", Excerpt = "unit testing test"});
             Assert.IsNotNull(result);
+
+            var result2 = await client.UpdatePost(
+                authToken,
+                new PostUpdate() { Title = "This is a test post 2", Content = "some content 2", Excerpt = "unit testing test 2" },result.Id);
+            Assert.IsNotNull(result2);
+
+            var result3 = await client.DeletePost(authToken, result.Id);
+            Assert.IsNotNull(result3);
         }
 
 

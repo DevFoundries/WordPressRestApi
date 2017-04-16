@@ -7,6 +7,16 @@ using WordPressRestApi.QueryModel;
 
 namespace WordPressRestApi.CreateModel
 {
+    public class PostStatus
+    {
+        public static string PUBLISH = "publish";
+        public static string FUTURE = "future";
+        public static string DRAFT = "draft";
+        public static string PENDING = "pending";
+        public static string PRIVATE = "private";
+    }
+
+
     public class PostCreate : AttributeGenerator
     {
         [QueryName(Name = "date")]
@@ -17,7 +27,7 @@ namespace WordPressRestApi.CreateModel
         [QueryName(Name = "slug")]
         public string Slug { get; set; }
         [QueryName(Name = "status")]
-        public string Status { get; set; }
+        public string Status { get; set; } = PostStatus.DRAFT;
         [QueryName(Name="password")]
         public string Password { get; set; }
         [QueryName(Name = "title")]
