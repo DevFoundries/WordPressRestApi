@@ -39,16 +39,16 @@ I'm prioritizing retreiving data for now. Add, then modify, will come later.
 | Feature | Status | Read | Add | Update |
 | ------- | ------ | ----- | ---- | ---- | 
 | Posts | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |
+| Settings | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | N/A | <font style='color:green'>Done</font> |
 | Categories | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Tags | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Pages | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
-| Comments | <font style='color:red'>Not Started</font> | | | |
-| Taxonomies | <font style='color:red'>Not planned</font> | | | |
 | Media | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Users | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Post Types | <font style='color:red'>Not planned</font> | | | |
 | Post Statuses | <font style='color:red'>Not planned</font> | | | |
-| Settings | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | N/A | <font style='color:green'>Done</font> |
+| Comments | <font style='color:red'>Not Started</font> | | | |
+| Taxonomies | <font style='color:red'>Not planned</font> | | | |
 
 
 ## Usage
