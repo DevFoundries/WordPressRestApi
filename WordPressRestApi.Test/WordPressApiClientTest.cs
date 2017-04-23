@@ -134,12 +134,22 @@ namespace WordPressRestApi.Test
             };
             var result = await client.CreatePost(
                 authToken,
-                new PostCreate(){Title = "This is a test post",Content = "some content", Excerpt = "unit testing test"});
+                new PostCreate()
+                {
+                    Title = "This is a test post",
+                    Content = "some content",
+                    Excerpt = "unit testing test"
+                });
             Assert.IsNotNull(result);
 
             var result2 = await client.UpdatePost(
                 authToken,
-                new PostUpdate() { Title = "This is a test post 2", Content = "some content 2", Excerpt = "unit testing test 2" },result.Id);
+                new PostUpdate()
+                {
+                    Title = "This is a test post 2",
+                    Content = "some content 2",
+                    Excerpt = "unit testing test 2"
+                }, result.Id);
             Assert.IsNotNull(result2);
 
             var result3 = await client.DeletePost(authToken, result.Id);
@@ -147,6 +157,33 @@ namespace WordPressRestApi.Test
         }
 
 
+        [TestMethod]
+        public async Task CategoryCreateTest()
+        {
+            var authToken = new AuthenticationTokens()
+            {
+                ApplicationPassword = "HN20 RtTk 4paL KwHd M8J0 HK9g",
+                UserName = "wbsimms"
+            };
+            var result = await client.CreateCategory(
+                authToken,
+                new CategoryCreate()
+                {
+                    Description = "Test Category",
+                    Name = "TestCategory",
+                    Slug = "test-category"
+                });
+            Assert.IsNotNull(result);
+
+            var result2 = await client.UpdateCategory(
+                authToken,
+                new CategoryUpdate()
+                {
+                    Description = "Test Category 2"
+                }, result.Id);
+            Assert.IsNotNull(result2);
+
+        }
 
     }
 }

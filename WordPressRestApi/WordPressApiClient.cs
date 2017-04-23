@@ -310,6 +310,77 @@ namespace WordPressRestApi
         }
 
 
+        public async Task<Category> CreateCategory(AuthenticationTokens tokens, CategoryCreate category)
+        {
+            var body = JsonConvert.SerializeObject(category, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "categories",
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = category.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Category>(response.Content);
+        }
+
+        public async Task<Category> UpdateCategory(AuthenticationTokens tokens, CategoryUpdate category, int categoryId)
+        {
+            var body = JsonConvert.SerializeObject(category, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "categories/"+categoryId,
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = category.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Category>(response.Content);
+        }
+
+        /// <summary>
+        /// Not implemented
+        /// </summary>
+        /// <param name="tokens"></param>
+        /// <param name="categoryId"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Not implemented
+        /// </remarks>
+        public async Task<Category> DeleteCategory(AuthenticationTokens tokens, int categoryId)
+        {
+            throw new NotImplementedException();
+            //var request = new RestRequest()
+            //{
+            //    Method = Method.DELETE,
+            //    Resource = "categories/" + categoryId,
+            //}.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            //request.AddBody("force", true);
+
+            //var response = await Client.Execute(request);
+            //return JsonConvert.DeserializeObject<Category>(response.Content);
+        }
 
     }
 }

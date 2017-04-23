@@ -40,6 +40,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateModel\CategoryCreate.cs" />
     <Compile Include="CreateModel\PostCreate.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\Author.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="QueryModel\PostQuery.cs" />
     <Compile Include="QueryModel\PostsQuery.cs" />
     <Compile Include="QueryModel\QueryNameAttribute.cs" />
+    <Compile Include="UpdateModel\CategoryCreate.cs" />
     <Compile Include="UpdateModel\PostUpdate.cs" />
     <Compile Include="WordPressApiClient.cs" />
   </ItemGroup>
