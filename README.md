@@ -36,11 +36,11 @@ Install-Package WmBarrettSimms.WordPressRestApi
 
 I'm prioritizing retreiving data for now. Add, then modify, will come later.
 
-| Feature | Status | Read | Add | Update |
-| ------- | ------ | ----- | ---- | ---- | 
-| Posts | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |
-| Settings | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | N/A | <font style='color:green'>Done</font> |
-| Categories | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
+| Feature | Status | Read | Add | Update | Delete |
+| ------- | ------ | ----- | ---- | ---- | ------ |
+| Posts | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |<font style='color:green'>Done</font> |
+| Settings | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | N/A | <font style='color:green'>Done</font> | N/A |
+| Categories | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |<font style='color:green'>Done</font> |
 | Tags | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Pages | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Media | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
