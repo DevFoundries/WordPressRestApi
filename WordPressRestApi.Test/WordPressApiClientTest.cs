@@ -162,7 +162,7 @@ namespace WordPressRestApi.Test
         {
             var authToken = new AuthenticationTokens()
             {
-                ApplicationPassword = "HN20 RtTk 4paL KwHd M8J0 HK9g",
+                ApplicationPassword = "Secret",
                 UserName = "wbsimms"
             };
             var result = await client.CreateCategory(
