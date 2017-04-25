@@ -41,8 +41,8 @@ I'm prioritizing retreiving data for now. Add, then modify, will come later.
 | Posts | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |<font style='color:green'>Done</font> |
 | Settings | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | N/A | <font style='color:green'>Done</font> | N/A |
 | Categories | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |<font style='color:green'>Done</font> |
-| Tags | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
-| Pages | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
+| Tags | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | N/A |
+| Pages | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |<font style='color:green'>Done</font> | <font style='color:green'>Done</font>|
 | Media | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Users | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Post Types | <font style='color:red'>Not planned</font> | | | |
