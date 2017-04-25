@@ -43,11 +43,11 @@ I'm prioritizing retreiving data for now. Add, then modify, will come later.
 | Categories | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |<font style='color:green'>Done</font> |
 | Tags | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | N/A |
 | Pages | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |<font style='color:green'>Done</font> | <font style='color:green'>Done</font>|
-| Media | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
+| Media | <font style='color:green'>Done</font> | <font style='color:green'>Done</font> |<font style='color:green'>Done</font> |<font style='color:green'>Done</font> |<font style='color:green'>Done</font> |
 | Users | <font style='color:orange'>Partial</font> | <font style='color:green'>Done</font> | | |
 | Post Types | <font style='color:red'>Not planned</font> | | | |
 | Post Statuses | <font style='color:red'>Not planned</font> | | | |
-| Comments | <font style='color:red'>Not Started</font> | | | |
+| Comments | <font style='color:red'>Not planned</font> | | | |
 | Taxonomies | <font style='color:red'>Not planned</font> | | | |
 
 
