@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp.Portable;
@@ -13,22 +12,60 @@ using WordPressRestApi.UpdateModel;
 
 namespace WordPressRestApi
 {
-    public class AuthenticationTokens
+    public interface IWordPressApiClient
     {
-        public string UserName { get; set; }
-        public string ApplicationPassword { get; set; }
-        
-        public string CreateHeaderToken()
-        {
-            string retval = Convert.ToBase64String(Encoding.UTF8.GetBytes(UserName+":"+ApplicationPassword));
-            return retval;
-        }
+        Task<Post> GetPost(PostQuery query, int postId);
+        Task<List<Post>> GetPosts(PostsQuery query);
+        Task<List<Category>> GetCategories(CategoriesQuery query);
+        Task<List<Tag>> GetTags(TagsQuery query);
+        Task<List<Page>> GetPages(PagesQuery query);
+        Task<Page> GetPage(PageQuery query, int pageId);
+        Task<List<User>> GetUsers(UsersQuery query);
+        Task<User> GetUser(UserQuery query, int userId);
+        Task<List<Media>> GetMedias(MediasQuery query);
+        Task<Media> GetMedia(MediaQuery query, int mediaId);
+        Task<Settings> GetSettings(AuthenticationTokens tokens);
+        Task<Settings> UpdateSettings(AuthenticationTokens tokens, Settings settings);
+        Task<Post> CreatePost(AuthenticationTokens tokens, PostCreate post);
+        Task<Post> UpdatePost(AuthenticationTokens tokens, PostUpdate post, int postId);
+        Task<Post> DeletePost(AuthenticationTokens tokens, int postId);
+        Task<Category> CreateCategory(AuthenticationTokens tokens, CategoryCreate category);
+        Task<Category> UpdateCategory(AuthenticationTokens tokens, CategoryUpdate category, int categoryId);
 
+        /// <summary>
+        /// Not implemented
+        /// </summary>
+        /// <param name="tokens"></param>
+        /// <param name="categoryId"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Not implemented in the API
+        /// </remarks>
+        Task<Category> DeleteCategory(AuthenticationTokens tokens, int categoryId);
+
+        Task<Tag> CreateTag(AuthenticationTokens tokens, TagCreate tag);
+        Task<Tag> UpdateCategory(AuthenticationTokens tokens, TagUpdate category, int tagId);
+
+        /// <summary>
+        /// Not implemented
+        /// </summary>
+        /// <param name="tokens"></param>
+        /// <param name="tagId"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Not implemented in the API
+        /// </remarks>
+        Task<Category> DeleteTag(AuthenticationTokens tokens, int tagId);
+
+        Task<Page> CreatePage(AuthenticationTokens tokens, PageCreate page);
+        Task<Page> UpdatePage(AuthenticationTokens tokens, PageUpdate category, int pageId);
+        Task<Page> DeletePage(AuthenticationTokens tokens, int pageId);
+        Task<Media> CreateMedia(AuthenticationTokens tokens, MediaCreate media);
+        Task<Media> UpdateMedia(AuthenticationTokens tokens, MediaUpdate category, int mediaId);
+        Task<Media> DeleteMedia(AuthenticationTokens tokens, int mediaId);
     }
 
-
-
-    public class WordPressApiClient
+    public class WordPressApiClient : IWordPressApiClient
     {
 
         public string Url { get; private set; }
@@ -478,7 +515,7 @@ namespace WordPressRestApi
             return JsonConvert.DeserializeObject<Page>(response.Content);
         }
 
-        public async Task<Page> UpdateCategory(AuthenticationTokens tokens, PageUpdate category, int pageId)
+        public async Task<Page> UpdatePage(AuthenticationTokens tokens, PageUpdate category, int pageId)
         {
             var body = JsonConvert.SerializeObject(category, new JsonSerializerSettings()
             {
@@ -512,6 +549,67 @@ namespace WordPressRestApi
 
             var response = await Client.Execute(request);
             return JsonConvert.DeserializeObject<Page>(response.Content);
+        }
+
+
+        public async Task<Media> CreateMedia(AuthenticationTokens tokens, MediaCreate media)
+        {
+            var body = JsonConvert.SerializeObject(media, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "media",
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = media.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Media>(response.Content);
+        }
+
+        public async Task<Media> UpdateMedia(AuthenticationTokens tokens, MediaUpdate category, int mediaId)
+        {
+            var body = JsonConvert.SerializeObject(category, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "media/" + mediaId,
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = category.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Media>(response.Content);
+        }
+
+        public async Task<Media> DeleteMedia(AuthenticationTokens tokens, int mediaId)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.DELETE,
+                Resource = "media/" + mediaId,
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Media>(response.Content);
         }
 
 

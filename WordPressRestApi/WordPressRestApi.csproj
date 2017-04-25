@@ -40,6 +40,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationTokens.cs" />
+    <Compile Include="CreateModel\MediaCreate.cs" />
     <Compile Include="CreateModel\PageCreate.cs" />
     <Compile Include="CreateModel\TagCreate.cs" />
     <Compile Include="CreateModel\CategoryCreate.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="QueryModel\PostQuery.cs" />
     <Compile Include="QueryModel\PostsQuery.cs" />
     <Compile Include="QueryModel\QueryNameAttribute.cs" />
+    <Compile Include="UpdateModel\MediaUpdate.cs" />
     <Compile Include="UpdateModel\PageUpdate.cs" />
     <Compile Include="UpdateModel\TagUpdate.cs" />
     <Compile Include="UpdateModel\CategoryUpdate.cs" />
