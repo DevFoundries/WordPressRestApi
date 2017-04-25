@@ -7,7 +7,7 @@ using WordPressRestApi.QueryModel;
 
 namespace WordPressRestApi.CreateModel
 {
-    public class PostStatus
+    public class PageStatus
     {
         public static string PUBLISH = "publish";
         public static string FUTURE = "future";
@@ -17,19 +17,18 @@ namespace WordPressRestApi.CreateModel
     }
 
 
-    public class PostCreate : AttributeGenerator
+    public class PageCreate : AttributeGenerator
     {
         [QueryName(Name = "date")]
         public DateTime Date { get; set; } = DateTime.Now;
-
         [QueryName(Name = "date_gmt")]
         public DateTime DateGmt { get; set; } = DateTime.UtcNow;
         [QueryName(Name = "slug")]
         public string Slug { get; set; }
         [QueryName(Name = "status")]
         public string Status { get; set; } = PostStatus.DRAFT;
-        [QueryName(Name="password")]
-        public string Password { get; set; }
+        [QueryName(Name="parent")]
+        public string Parent { get; set; }
         [QueryName(Name = "title")]
         public string Title { get; set; }
         [QueryName(Name = "content")]
@@ -44,20 +43,11 @@ namespace WordPressRestApi.CreateModel
         public string CommentStatus { get; set; }
         [QueryName(Name = "ping_status")]
         public string PingStatus { get; set; }
-        [QueryName(Name = "format")]
-        public string Format { get; set; }
+        [QueryName(Name = "menu_order")]
+        public string MenuOrder { get; set; }
         [QueryName(Name = "meta")]
         public string Meta { get; set; }
-        [QueryName(Name = "sticky")]
-        public string Sticky { get; set; }
         [QueryName(Name = "template")]
         public string Template { get; set; }
-        [QueryName(Name = "categories")]
-        public List<int> Categories { get; set; }
-        [QueryName(Name = "tags")]
-        public List<string> Tags { get; set; }
-        [QueryName(Name = "liveblog_likes")]
-        public string LiveblogLikes { get; set; }
-
     }
 }

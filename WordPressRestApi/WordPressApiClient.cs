@@ -365,7 +365,7 @@ namespace WordPressRestApi
         /// <param name="categoryId"></param>
         /// <returns></returns>
         /// <remarks>
-        /// Not implemented
+        /// Not implemented in the API
         /// </remarks>
         public async Task<Category> DeleteCategory(AuthenticationTokens tokens, int categoryId)
         {
@@ -381,6 +381,139 @@ namespace WordPressRestApi
             //var response = await Client.Execute(request);
             //return JsonConvert.DeserializeObject<Category>(response.Content);
         }
+
+        public async Task<Tag> CreateTag(AuthenticationTokens tokens, TagCreate tag)
+        {
+            var body = JsonConvert.SerializeObject(tag, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "tags",
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = tag.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Tag>(response.Content);
+        }
+
+        public async Task<Tag> UpdateCategory(AuthenticationTokens tokens, TagUpdate category, int tagId)
+        {
+            var body = JsonConvert.SerializeObject(category, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "tags/" + tagId,
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = category.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Tag>(response.Content);
+        }
+
+        /// <summary>
+        /// Not implemented
+        /// </summary>
+        /// <param name="tokens"></param>
+        /// <param name="tagId"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Not implemented in the API
+        /// </remarks>
+        public async Task<Category> DeleteTag(AuthenticationTokens tokens, int tagId)
+        {
+            throw new NotImplementedException();
+            //var request = new RestRequest()
+            //{
+            //    Method = Method.DELETE,
+            //    Resource = "categories/" + categoryId,
+            //}.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            //request.AddBody("force", true);
+
+            //var response = await Client.Execute(request);
+            //return JsonConvert.DeserializeObject<Category>(response.Content);
+        }
+
+        public async Task<Page> CreatePage(AuthenticationTokens tokens, PageCreate page)
+        {
+            var body = JsonConvert.SerializeObject(page, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "pages",
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = page.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Page>(response.Content);
+        }
+
+        public async Task<Page> UpdateCategory(AuthenticationTokens tokens, PageUpdate category, int pageId)
+        {
+            var body = JsonConvert.SerializeObject(category, new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            var request = new RestRequest()
+            {
+                Method = Method.POST,
+                Resource = "pages/" + pageId,
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var queryParameters = category.GenerateQueryDictionary();
+            foreach (var pair in queryParameters)
+            {
+                request.AddQueryParameter(pair.Key, pair.Value);
+            }
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Page>(response.Content);
+        }
+
+        public async Task<Page> DeletePage(AuthenticationTokens tokens, int pageId)
+        {
+            var request = new RestRequest()
+            {
+                Method = Method.DELETE,
+                Resource = "pages/" + pageId,
+            }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
+
+            var response = await Client.Execute(request);
+            return JsonConvert.DeserializeObject<Page>(response.Content);
+        }
+
 
     }
 }
