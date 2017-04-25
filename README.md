@@ -13,6 +13,9 @@ This open source project is user supported. Please donate what you can if you fi
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 
+## Build Status
+[![Build status](https://ci.appveyor.com/api/projects/status/9bqw7s2jlt9xu1cq/branch/master?svg=true)](https://ci.appveyor.com/project/wbsimms/wordpressrestapi/branch/master)
+
 ## Installation
 ```
 Install-Package WmBarrettSimms.WordPressRestApi 
