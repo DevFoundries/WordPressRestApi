@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using WordPressRestApi.Valications;
 
 namespace WordPressRestApi.QueryModel
 {
@@ -8,8 +9,17 @@ namespace WordPressRestApi.QueryModel
         public string Context { get; set; }
         [QueryName(Name = "page")]
         public int Page { get; set; }
+        private int perPage;
         [QueryName(Name = "per_page")]
-        public int PerPage { get; set; }
+        public int PerPage
+        {
+            get => perPage;
+            set
+            {
+                PerPageValidation.Validate(value);
+                this.perPage = value;
+            }
+        }
         [QueryName(Name = "search")]
         public string Search { get; set; }
         [QueryName(Name = "after")]
