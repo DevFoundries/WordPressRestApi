@@ -101,6 +101,7 @@
     <Compile Include="UpdateModel\TagUpdate.cs" />
     <Compile Include="UpdateModel\CategoryUpdate.cs" />
     <Compile Include="UpdateModel\PostUpdate.cs" />
+    <Compile Include="Valications\PerPageValidation.cs" />
     <Compile Include="WordPressApiClient.cs" />
   </ItemGroup>
   <ItemGroup>

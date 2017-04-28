@@ -59,6 +59,12 @@ namespace WordPressRestApi.Test
             Assert.IsNotNull(result);
         }
 
+        [TestMethod,ExpectedException(typeof(ArgumentException))]
+        public async Task CategoryPerPageTooLarge()
+        {
+            var result = await client.GetCategories(new CategoriesQuery() { PerPage = 200, HideEmpty = true });
+        }
+
         [TestMethod]
         public async Task GetTagsTest()
         {
