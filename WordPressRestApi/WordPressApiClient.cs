@@ -9,6 +9,7 @@ using WordPressRestApi.CreateModel;
 using WordPressRestApi.Models;
 using WordPressRestApi.QueryModel;
 using WordPressRestApi.UpdateModel;
+using WordPressRestApi.Validations;
 
 namespace WordPressRestApi
 {
@@ -96,6 +97,11 @@ namespace WordPressRestApi
 
         public async Task<List<Post>> GetPosts(PostsQuery query)
         {
+            var validation = new PostsQueryValidator().Validate(query);
+            if (validation.HasError)
+                throw new ArgumentException(
+                    "Model failed validation.\r\n"+ValidationResultOutputFormatter.FormatResults(validation));
+
             var request = new RestRequest()
             {
                 Method = Method.GET,

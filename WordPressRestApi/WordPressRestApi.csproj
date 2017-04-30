@@ -37,7 +37,9 @@
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationTokens.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="QueryModel\AttributeGenerator.cs" />
     <Compile Include="QueryModel\PagesQuery.cs" />
     <Compile Include="QueryModel\MediasQuery.cs" />
+    <Compile Include="Validations\PostsQueryValidator.cs" />
     <Compile Include="QueryModel\UserQuery.cs" />
     <Compile Include="QueryModel\TagsQuery.cs" />
     <Compile Include="QueryModel\Context.cs" />
@@ -96,12 +99,14 @@
     <Compile Include="QueryModel\PostQuery.cs" />
     <Compile Include="QueryModel\PostsQuery.cs" />
     <Compile Include="QueryModel\QueryNameAttribute.cs" />
+    <Compile Include="Validations\ValidationResponse.cs" />
+    <Compile Include="Validations\ValidationResult.cs" />
     <Compile Include="UpdateModel\MediaUpdate.cs" />
     <Compile Include="UpdateModel\PageUpdate.cs" />
     <Compile Include="UpdateModel\TagUpdate.cs" />
     <Compile Include="UpdateModel\CategoryUpdate.cs" />
     <Compile Include="UpdateModel\PostUpdate.cs" />
-    <Compile Include="Valications\PerPageValidation.cs" />
+    <Compile Include="Validations\PerPageValidation.cs" />
     <Compile Include="WordPressApiClient.cs" />
   </ItemGroup>
   <ItemGroup>
