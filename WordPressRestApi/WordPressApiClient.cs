@@ -91,7 +91,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Post>(response.Content);
         }
 
@@ -112,7 +112,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<Post>>(response.Content);
         }
 
@@ -128,7 +128,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<Category>>(response.Content);
         }
 
@@ -144,7 +144,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<Tag>>(response.Content);
         }
 
@@ -160,7 +160,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<Page>>(response.Content);
         }
 
@@ -176,7 +176,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Page>(response.Content);
         }
 
@@ -192,7 +192,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<User>>(response.Content);
         }
 
@@ -208,7 +208,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<User>(response.Content);
         }
 
@@ -224,7 +224,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             var content = response.Content;
             return JsonConvert.DeserializeObject<List<Media>>(content);
         }
@@ -241,7 +241,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<Media>(response.Content);
         }
@@ -258,7 +258,7 @@ namespace WordPressRestApi
             //    request.AddQueryParameter(pair.Key, pair.Value);
             //}
 
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<Settings>(response.Content);
         }
@@ -280,7 +280,7 @@ namespace WordPressRestApi
             }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken()).AddBody(body);
 
  
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<Settings>(response.Content);
         }
@@ -307,7 +307,7 @@ namespace WordPressRestApi
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
 
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<Post>(response.Content);
         }
@@ -333,7 +333,7 @@ namespace WordPressRestApi
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
 
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<Post>(response.Content);
         }
@@ -347,7 +347,7 @@ namespace WordPressRestApi
                 Resource = "posts/" + postId,
             }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
 
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<Post>(response.Content);
         }
@@ -373,7 +373,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Category>(response.Content);
         }
 
@@ -397,7 +397,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Category>(response.Content);
         }
 
@@ -445,7 +445,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Tag>(response.Content);
         }
 
@@ -469,7 +469,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Tag>(response.Content);
         }
 
@@ -517,7 +517,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Page>(response.Content);
         }
 
@@ -541,7 +541,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Page>(response.Content);
         }
 
@@ -553,7 +553,7 @@ namespace WordPressRestApi
                 Resource = "pages/" + pageId,
             }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
 
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Page>(response.Content);
         }
 
@@ -578,7 +578,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Media>(response.Content);
         }
 
@@ -602,7 +602,7 @@ namespace WordPressRestApi
             {
                 request.AddQueryParameter(pair.Key, pair.Value);
             }
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Media>(response.Content);
         }
 
@@ -614,7 +614,7 @@ namespace WordPressRestApi
                 Resource = "media/" + mediaId,
             }.AddHeader("Authorization", "Basic " + tokens.CreateHeaderToken());
 
-            var response = await Client.Execute(request);
+            var response = await Client.Execute(request).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<Media>(response.Content);
         }
 
