@@ -7,8 +7,21 @@ namespace WordPressRestApi.Validations
         public ValidationResult Validate(PostsQuery model)
         {
             ValidationResult retval = new ValidationResult();
-            retval.Responses.Add(PerPageValidation.Validate(model.PerPage));
+            var val = PerPageValidation.Validate(model.PerPage);
+            if (val != null) retval.Responses.Add(val);
             return retval;
         }
     }
+
+    public class CategoriesQueryValidator
+    {
+        public ValidationResult Validate(CategoriesQuery model)
+        {
+            ValidationResult retval = new ValidationResult();
+            var val = PerPageValidation.Validate(model.PerPage);
+            if (val != null) retval.Responses.Add(val);
+            return retval;
+        }
+    }
+
 }

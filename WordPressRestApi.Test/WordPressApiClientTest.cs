@@ -44,6 +44,21 @@ namespace WordPressRestApi.Test
             Assert.IsNotNull(result);
         }
 
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public async Task GetPostsTooManyTest()
+        {
+            var result = await client.GetPosts(new PostsQuery() { PerPage = 2000 });
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public async Task GetPostsDefaultTest()
+        { 
+            var result = await client.GetPosts(new PostsQuery());
+            Assert.IsNotNull(result);
+            Assert.AreEqual(10,result.Count);
+        }
+
         [TestMethod]
         public async Task GetPostsWithAuthorAndCateogoryTest()
         {
@@ -55,15 +70,25 @@ namespace WordPressRestApi.Test
         [TestMethod]
         public async Task GetCategoriesTest()
         {
-            var result = await client.GetCategories(new CategoriesQuery() { PerPage = 20, HideEmpty = true});
+            var result = await client.GetCategories(new CategoriesQuery() { HideEmpty = true});
             Assert.IsNotNull(result);
         }
 
         [TestMethod,ExpectedException(typeof(ArgumentException))]
-        public async Task CategoryPerPageTooLarge()
+        public async Task CategoryPerPageTooLargeTest()
         {
             var result = await client.GetCategories(new CategoriesQuery() { PerPage = 200, HideEmpty = true });
         }
+
+        [TestMethod]
+        public async Task CategoryDefaultTest()
+        {
+            var result = await client.GetCategories(new CategoriesQuery() { });
+            Assert.IsNotNull(result);
+            Assert.AreEqual(10,result.Count);
+        }
+
+
 
         [TestMethod]
         public async Task GetTagsTest()

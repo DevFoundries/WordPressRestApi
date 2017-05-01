@@ -10,7 +10,7 @@ namespace WordPressRestApi.QueryModel
         [QueryName(Name = "page")]
         public int Page { get; set; }
         [QueryName(Name = "per_page")]
-        public int PerPage { get; set; }
+        public int PerPage { get; set; } = 10;
         [QueryName(Name = "search")]
         public string Search { get; set; }
         [QueryName(Name = "after")]

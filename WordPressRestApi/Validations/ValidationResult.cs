@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace WordPressRestApi.Validations
     {
         public static string FormatResults(ValidationResult result)
         {
+            if (result == null || !result.Responses.Any()) return String.Empty; 
             StringBuilder sb = new StringBuilder();
             foreach (var validationResponse in result.Responses)
             {

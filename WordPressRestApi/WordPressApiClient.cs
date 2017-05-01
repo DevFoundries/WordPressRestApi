@@ -118,6 +118,11 @@ namespace WordPressRestApi
 
         public async Task<List<Category>> GetCategories(CategoriesQuery query)
         {
+            var validation = new CategoriesQueryValidator().Validate(query);
+            if (validation.HasError)
+                throw new ArgumentException(
+                    "Model failed validation.\r\n" + ValidationResultOutputFormatter.FormatResults(validation));
+
             var request = new RestRequest()
             {
                 Method = Method.GET,
