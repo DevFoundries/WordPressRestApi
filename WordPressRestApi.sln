@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPressRestApi", "WordPressRestApi\WordPressRestApi.csproj", "{B71086F3-4849-422E-8D55-9160275FF578}"
 EndProject
@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		README.md = README.md
 		WordPressRestApi\WordPressRestApi.nuspec = WordPressRestApi\WordPressRestApi.nuspec
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordPressRestApiStandard", "WordPressRestApiStandard\WordPressRestApiStandard.csproj", "{A7313D3C-A287-4D4E-834B-06E6FAE05C7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPressRestApiStandard.Test", "WordPressRestApiStandard.Test\WordPressRestApiStandard.Test.csproj", "{CCC250E1-02EB-4940-B697-5F6901D89E8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPressRestApiCore.Test", "WordPressRestApiCore.Test\WordPressRestApiCore.Test.csproj", "{D08555C4-9637-4F62-91F9-B5360D0CE2F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{1C9318E4-9DEC-408E-A2B7-B2B21589B881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C9318E4-9DEC-408E-A2B7-B2B21589B881}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C9318E4-9DEC-408E-A2B7-B2B21589B881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7313D3C-A287-4D4E-834B-06E6FAE05C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7313D3C-A287-4D4E-834B-06E6FAE05C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7313D3C-A287-4D4E-834B-06E6FAE05C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7313D3C-A287-4D4E-834B-06E6FAE05C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC250E1-02EB-4940-B697-5F6901D89E8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC250E1-02EB-4940-B697-5F6901D89E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC250E1-02EB-4940-B697-5F6901D89E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC250E1-02EB-4940-B697-5F6901D89E8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D08555C4-9637-4F62-91F9-B5360D0CE2F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D08555C4-9637-4F62-91F9-B5360D0CE2F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D08555C4-9637-4F62-91F9-B5360D0CE2F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D08555C4-9637-4F62-91F9-B5360D0CE2F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
