@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
+    <PackageId>WmBarrettSimms.WordPressRestApiStandard</PackageId>
+    <Authors>Wm. Barrett Simms</Authors>
+    <Company>Wm. Barrett Simms</Company>
+    <PackageLicenseUrl>https://github.com/wbsimms/WordPressRestApi/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/wbsimms/WordPressRestApi</PackageProjectUrl>
+    <PackageIconUrl>https://wbsimms.com/wp-content/uploads/2014/10/WBS_200px-icon1.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/wbsimms/WordPressRestApi</RepositoryUrl>
+    <PackageTags>WordPress API REST V2 Standard</PackageTags>
+    <PackageReleaseNotes>Initial revision. Supports .NET Standard 1.4</PackageReleaseNotes>
+    <Description>WordPress Rest API v2 library for .NET Standard 1.4</Description>
+    <Copyright>Copyright 2017</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
