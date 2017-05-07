@@ -1,6 +1,9 @@
+
 # WordPressRestApi
 
 WordPressRestApi : A PCL library to access Wordpress content through the v2 API
+
+There are currently two version of this library. PCL and Standard. The .NET Standard version currently supports 1.4.
 
 ## Donations
 
@@ -13,18 +16,39 @@ This open source project is user supported. Please donate what you can if you fi
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 
+
+
 ## Build Status
 [![Build status](https://ci.appveyor.com/api/projects/status/9bqw7s2jlt9xu1cq/branch/master?svg=true)](https://ci.appveyor.com/project/wbsimms/wordpressrestapi/branch/master)
 
 ## Installation
+### The PCL version - You should probably be using the .NET Standard version below.
 ```
 Install-Package WmBarrettSimms.WordPressRestApi 
 ```
+### The .NET Standard version
+```
+Install-Package WmBarrettSimms.WordPressRestApiStandard 
+```
+
 
 ## Supported Platforms
-
+### WmBarrettSimms.WordPressRestApi 
 | .NET Version | Supported |
 | ------------ | --------- |
+| .NET 4.5     | <font style='color:green'>Yes</font> |
+| ASP.NET Core 1 | <font style='color:green'>Yes</font> |
+| Windows 8 | <font style='color:green'>Yes</font> |
+| Windows Universal 10 | <font style='color:green'>Yes</font> |
+| Xamarin.Android | <font style='color:green'>Yes</font> |
+| Xamarin.iOS | <font style='color:green'>Yes</font> |
+| Xamarin.iOS (Classic) | <font style='color:green'>Yes</font> |
+| Xamarin.Mac | <font style='color:green'>Yes</font> |
+
+### WmBarrettSimms.WordPressRestApiStandard 
+| .NET Version | Supported |
+| ------------ | --------- |
+| .NET Standard 1.4 | <font style='color:green'>Yes</font> |
 | .NET 4.5     | <font style='color:green'>Yes</font> |
 | ASP.NET Core 1 | <font style='color:green'>Yes</font> |
 | Windows 8 | <font style='color:green'>Yes</font> |
