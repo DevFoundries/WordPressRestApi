@@ -9,3 +9,5 @@ Documentation is here:
 
 ## Build Status
 [![Build status](https://ci.appveyor.com/api/projects/status/9bqw7s2jlt9xu1cq/branch/master?svg=true)](https://ci.appveyor.com/project/wbsimms/wordpressrestapi/branch/master)
+
+Minor update to be removed
